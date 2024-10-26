@@ -54,9 +54,9 @@ const GetMovies = () => {
     if (error) return <p>Error: {error}</p>;
     return (
         <div className="container max-w-none bg-primary text-textPrimary font-body px-4">
-            <div className="h-32 "></div>
+            <div className="h-32"></div>
             <div className="flex">
-                <ul className="lg:flex-initial hidden lg:block  lg:w-56">
+                <ul className="lg:flex-initial hidden lg:block lg:w-56">
                     <li>
                         <Link to="/">Home</Link>
                     </li>
@@ -70,14 +70,14 @@ const GetMovies = () => {
                         <Link to="/favourites">Favourites</Link>
                     </li>
                 </ul>
-                <ul className="flex-1 grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 ">
+                <ul className="flex-1 grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
                     {movies.map((movie, index) => (
                         <li
                             key={`${index}-${movie.id}`}
                             className="relative pb-6 transition ease-in-out duration-500 hover:-translate-y-1 hover:scale-105"
                             onClick={() => handleClick(movie.id)}
                         >
-                            <div className="">
+                            <div>
                                 <img
                                     src={`${imageUrl}/w185/${movie.poster_path}`}
                                     alt="Movie poster"
@@ -91,12 +91,10 @@ const GetMovies = () => {
                             lg:rounded-tl-full lg:rounded-br-full 
                             rounded-tl-lg rounded-br-lg  absolute top-0 right-0"
                             >
-                                <p className="">
-                                    {movie.vote_average.toFixed(1)}
-                                </p>
+                                <p>{movie.vote_average.toFixed(1)}</p>
                             </div>
                             <div className="truncate pt-3">
-                                <h2 className="font-bold font-header">
+                                <h2 className="font-bold font-header overflow-hidden text-ellipsis whitespace-nowrap md:text-1xl lg:text-1xl text-xs">
                                     {movie.title}
                                 </h2>
                                 <p className="text-xs pt-2 opacity-50">

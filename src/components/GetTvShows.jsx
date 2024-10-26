@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 const apiUrl = "https://api.themoviedb.org/3";
@@ -10,6 +10,7 @@ const GetTvShows = () => {
     const [tvShows, setTvShows] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    let navigate = useNavigate();
 
     useEffect(() => {
         const getTvShows = async () => {
@@ -23,18 +24,10 @@ const GetTvShows = () => {
                 
             } catch (error) {
                 if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    setError(error.response.data);
                     setError(error.response.status);
-                    setError(error.response.headers);
                 } else if (error.request) {
-                    // The request was made but no response was received
-                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                    // http.ClientRequest in node.js
                     setError(error.request);
                 } else {
-                    // Something happened in setting up the request that triggered an Error
                     setError("Error", error.message);
                 }
             } finally {
@@ -44,13 +37,17 @@ const GetTvShows = () => {
         getTvShows();
     }, []);
 
+    const handleClick = (id) => {
+        navigate(`/tvshows/${id}`);
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
     return (
         <div className="container max-w-none bg-primary text-textPrimary font-body px-4">
-            <div className="h-32 "></div>
+            <div className="h-32"></div>
             <div className="flex">
-                <ul className="flex-initial w-56">
+                <ul className="lg:flex-initial hidden lg:block lg:w-56">
                     <li>
                         <Link to="/">Home</Link>
                     </li>
@@ -68,7 +65,8 @@ const GetTvShows = () => {
                     {tvShows.map((tvShow, index) => (
                         <li
                             key={`${index}-${tvShow.id}`}
-                            className="relative pb-6 transition ease-in-out duration-500 hover:-translate-y-1 hover:scale-105 "
+                            className="relative pb-6 transition ease-in-out duration-500 hover:-translate-y-1 hover:scale-105"
+                            onClick={() => handleClick(tvShow.id)}
                         >
                             <div className="">
                                 <img
