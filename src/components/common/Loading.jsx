@@ -1,9 +1,9 @@
-import { TrophySpin } from "react-loading-indicators";
+import { Atom } from "react-loading-indicators";
 
 const Loading = () => {
     return (
         <div className="h-screen w-screen flex justify-center items-center">
-            <TrophySpin color="#32cd32" size="medium" text="" textColor="" />
+            <Atom color="#E50914" size="medium" text="" textColor="" />
         </div>
     );
 };
