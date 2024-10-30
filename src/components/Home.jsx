@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div
-            className="container max-w-none flex justify-center items-center bg-cover bg-center h-screen bg-[url('https://nkpremices.com/content/images/size/w1600/2021/08/mih10uhu1464fx1kr0by-2.jpg')] relative"
+            className="container max-w-none"
         >
+            <img 
+            src="https://nkpremices.com/content/images/size/w1600/2021/08/mih10uhu1464fx1kr0by-2.jpg" 
+            alt="background image" 
+            loading="lazy"
+            className="relative"/>
             <div className="bg-black absolute inset-0 opacity-50"></div>
-            <div className="flex flex-col justify-center items-center z-10">
+            <div className="flex flex-col justify-center items-center z-10 absolute inset-0">
                 <h1 className="text-5xl font-heading text-accent font-bold mb-4">
                     Welcome to Movie App
                 </h1>
