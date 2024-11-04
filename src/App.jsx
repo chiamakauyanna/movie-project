@@ -20,12 +20,12 @@ const App = () => {
                 <Route path="/movies" element={<DiscoverMovies />} />
                 <Route path="/tvshows" element={<DiscoverTvShows />} />
                 <Route path="/trending" element={<Trending />} />
-                <Route path="/popular_tvshows" element={<PopularTvShows />} />
-                <Route path="/popular_movies" element={<PopularMovies />} />
+                <Route path="/popular-tvshows" element={<PopularTvShows />} />
+                <Route path="/popular-movies" element={<PopularMovies />} />
                 <Route path="/airing" element={<Airing />} />
-                <Route path="/on_air" element={<OnTheAir />} />
-                <Route path="/toprated_movies" element={<TopRatedMovies />} />
-                <Route path="/toprated_tvshow" element={<TopRatedTvShows />} />
+                <Route path="/on-air" element={<OnTheAir />} />
+                <Route path="/toprated-movies" element={<TopRatedMovies />} />
+                <Route path="/toprated-tvshows" element={<TopRatedTvShows />} />
                 <Route path="/movies/:id" element={<GetMovieDetails />} />
                 <Route path="/tvshows/:id" element={<GetTvShowDetails />} />
             </Routes>
