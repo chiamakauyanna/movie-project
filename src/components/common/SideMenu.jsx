@@ -1,25 +1,69 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { FaArrowTrendUp, FaDiamond, FaFilm, FaHeart, FaHouse, FaVideo } from "react-icons/fa6";
+import {
+    FaArrowTrendUp,
+    FaDiamond,
+    FaFilm,
+    FaHeart,
+    FaVideo,
+} from "react-icons/fa6";
 
 const SideMenu = () => {
     return (
-        <div className="bg-secondary pt-10 text-gray-500 font-semibold flex-col hidden md:flex lg:flex w-1/3">
+        <div className="bg-secondary pt-10 text-gray-500 font-semibold flex-col hidden md:flex lg:flex w-1/2">
             <Logo />
             <div className="lg:flex-initial">
                 <h2 className="font-heading pl-8 py-6">Main</h2>
                 <ul className=" pl-10 transition ease-in-out duration-500">
-                    <li className="mb-6 focus:text-accent hover:text-accent flex items-center gap-2">
-                        <FaHouse />
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li className="mb-6 focus:text-accent hover:text-accent flex items-center gap-2">
-                        <FaFilm />
-                        <Link to="/movies">Discover</Link>
+                    <li className="mb-6">
+                        <div>Discover</div>
+
+                        <ul className="pl-6 pt-2">
+                            <li className="pb-3 active:text-accent hover:text-accent flex items-center gap-2">
+                                <FaFilm />
+                                <Link to="/movies">Movies</Link>
+                            </li>
+                            <li className="active:text-accent hover:text-accent flex items-center gap-2">
+                                <FaFilm />
+                                <Link to="/tvshows">Tv Shows</Link>
+                            </li>
+                        </ul>
                     </li>
                     <li className="mb-6 focus:text-accent hover:text-accent flex items-center gap-2">
                         <FaArrowTrendUp />
-                        <Link to="/tvshows">Trending</Link>
+                        <Link to="/trending">Trending</Link>
+                    </li>
+                    <li className="mb-6">
+                        Popular
+                        <ul className="pl-6 pt-2">
+                            <li className="pb-3 active:text-accent hover:text-accent flex items-center gap-2">
+                                <FaVideo />
+                                <Link to="/popular-movies">Popular Movies</Link>
+                            </li>
+                            <li className="active:text-accent hover:text-accent flex items-center gap-2">
+                                <FaVideo />
+                                <Link to="/popular-tvshows">
+                                    Popular Tv Shows
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className="mb-6">
+                        Top Rated
+                        <ul className="pl-6 pt-2">
+                            <li className="pb-3 active:text-accent hover:text-accent flex items-center gap-2">
+                                <FaVideo />
+                                <Link to="/toprated-movies">
+                                    Top Rated Movies
+                                </Link>
+                            </li>
+                            <li className="active:text-accent hover:text-accent flex items-center gap-2">
+                                <FaVideo />
+                                <Link to="/toprated-tvshows">
+                                    Top Rated Tv Shows
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
                     <li className="mb-6 focus:text-accent hover:text-accent flex items-center gap-2">
                         <FaVideo />
