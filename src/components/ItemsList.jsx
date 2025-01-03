@@ -6,7 +6,10 @@ import Loading from "./common/Loading";
 const ItemsList = ({ title, items = [], loading, error, onItemClick }) => {
     return (
         <div className="flex">
-            <SideMenu />
+            <div className="flex-initial w-[30%]">
+             <SideMenu />   
+            </div>
+            
             <div>
                 <div>
                     <Header />

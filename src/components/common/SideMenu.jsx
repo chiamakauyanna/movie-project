@@ -10,13 +10,13 @@ import {
 
 const SideMenu = () => {
     return (
-        <div className="bg-secondary pt-10 text-gray-500 font-semibold flex-col hidden md:flex lg:flex w-1/2">
+        <div className="bg-secondary pt-10 text-gray-500 font-semibold flex-col hidden md:flex lg:flex h-full">
             <Logo />
             <div className="lg:flex-initial">
                 <h2 className="font-heading pl-8 py-6">Main</h2>
                 <ul className=" pl-10 transition ease-in-out duration-500">
                     <li className="mb-6">
-                        <div>Discover</div>
+                        <div className="text-lg">Discover</div>
 
                         <ul className="pl-6 pt-2">
                             <li className="pb-3 active:text-accent hover:text-accent flex items-center gap-2">
@@ -33,7 +33,7 @@ const SideMenu = () => {
                         <FaArrowTrendUp />
                         <Link to="/trending">Trending</Link>
                     </li>
-                    <li className="mb-6">
+                    <li className="mb-6 text-lg">
                         Popular
                         <ul className="pl-6 pt-2">
                             <li className="pb-3 active:text-accent hover:text-accent flex items-center gap-2">
@@ -48,7 +48,7 @@ const SideMenu = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="mb-6">
+                    <li className="mb-6 text-lg">
                         Top Rated
                         <ul className="pl-6 pt-2">
                             <li className="pb-3 active:text-accent hover:text-accent flex items-center gap-2">

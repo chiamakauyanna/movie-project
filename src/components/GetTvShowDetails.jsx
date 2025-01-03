@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Loading from "./common/Loading";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 const apiUrl = "https://api.themoviedb.org/3";
@@ -32,11 +34,15 @@ const GetTvShowDetails = () => {
                 setCasts(castResponse.data.cast);
             } catch (error) {
                 if (error.response) {
-                    setError(error.response.status);
+                    setError(
+                        "We're having trouble loading the information right now. Please refresh the page or try again later."
+                    );
                 } else if (error.request) {
-                    setError(error.request);
+                    setError(
+                        "Oops! It seems there’s a problem with your connection. Please check your internet and try again."
+                    );
                 } else {
-                    setError(error.message);
+                    setError(`Error: ${error.message}. Please try again.`);
                 }
             } finally {
                 setLoading(false);
@@ -49,12 +55,23 @@ const GetTvShowDetails = () => {
         navigate(-1);
     };
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    if (loading) return <Loading/>;
+     if (error)
+         return (
+             <div className="flex w-3/4 h-screen m-auto justify-center items-center font-bold">
+                 <p>{error}</p>;
+             </div>
+         ); 
     return (
         <div className="container max-w-none bg-primary text-textPrimary font-body max-h-full">
             <div className="absolute z-10 p-6">
-                <button onClick={handleBackButton}>Back</button>
+                <button
+                    onClick={handleBackButton}
+                    className="flex gap-3 transition duration-300 ease-in-out hover:text-accent items-center"
+                >
+                    <FaArrowAltCircleLeft />
+                    Back
+                </button>
             </div>
             <img
                 src={`${imageUrl}/original/${details.backdrop_path}`}
