@@ -40,8 +40,8 @@ const App = () => {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/movies/:id" element={<GetMovieDetails />} />
           <Route path="/tvshows/:id" element={<GetTvShowDetails />} />
-           <Route path="/search" element={<Search />} />
-           <Route path="/recommendations" element={<Recommendations />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/recommendations" element={<Recommendations />} />
         </Routes>
       </AuthProvider>
     </Router>

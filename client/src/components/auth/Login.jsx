@@ -21,7 +21,9 @@ const Login = () => {
       login(res.data);
       navigate("/movies");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      const serverError =
+        err.response?.data?.error || "Registration failed. Please try again.";
+      setError(serverError);
     }
   };
 
